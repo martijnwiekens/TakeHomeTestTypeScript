@@ -22,7 +22,6 @@
     "typescript": "~5.4"
   },
   "scripts": {
-    "start": "node build/src/main.js",
     "clean": "rimraf coverage build tmp",
     "prebuild": "npm run lint",
     "build": "tsc -p tsconfig.json",
@@ -31,12 +30,20 @@
     "lint": "eslint . --ext .ts --ext .mts",
     "test": "jest --coverage",
     "prettier": "prettier --config .prettierrc --write .",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "devtask3": "npm run build && node build/src/task3/main.js",
+    "clienttask3": "npm run build && node build/src/task3/client.js"
   },
   "author": "Jakub Synowiec <jsynowiec@users.noreply.github.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "tslib": "~2.6"
+    "@apollo/server": "^4.10.4",
+    "axios": "^1.7.2",
+    "cross-fetch": "^4.0.0",
+    "graphql": "^16.8.1",
+    "sort-es": "^1.7.9",
+    "tslib": "~2.6",
+    "uuid": "^10.0.0"
   },
   "volta": {
     "node": "20.12.2"

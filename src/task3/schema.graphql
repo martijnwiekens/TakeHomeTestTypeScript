@@ -1,0 +1,61 @@
+# Task 3: Design a GraphQL schema for the web page metadata stored in the DynamoDB table.
+# Implement a GraphQL server in TypeScript using AWS AppSync or any other preferred library
+# that exposes the schema, allowing clients to fetch data using custom queries and mutations.
+# Provide example queries and mutations for typical use cases.
+
+type Query {
+  """
+  Retrieve all WebPage meta data
+  Optional filters like hostname or startDate + endDate
+  """
+  listPages(
+    hostName: String
+    startDate: String
+    endDate: String
+    nextToken: String
+  ): PaginatedPages
+
+  """
+  Find an page
+  """
+  getPage(pageId: String!): Page
+}
+
+type Mutation {
+  """
+  Add a new page
+  """
+  addPage(item: InputPage): Page
+}
+
+input InputPage {
+  url: String!
+  pageTitle: String
+  wordCount: Int
+  faviconUrl: String
+  language: String
+  description: String
+  keywords: String
+  loadTime: Int
+}
+
+type PaginatedPages {
+  items: [Page]
+  count: Int
+  totalCount: Int
+  nextToken: String
+}
+
+type Page {
+  id: ID!
+  url: String
+  hostName: String
+  dateCrawled: String
+  pageTitle: String
+  wordCount: Int
+  faviconUrl: String
+  language: String
+  description: String
+  keywords: String
+  loadTime: Int
+}
