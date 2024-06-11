@@ -2,12 +2,12 @@
  * A utility function that accepts an array of objects and returns a deep copy of
  * the input array. The input objects may contain nested objects, arrays, or primitive data types.
  * @param source The array of objects to be copied.
- * 
+ *
  * @returns A deep copy of the input array.
  */
 export default function copy(source: Array<any>): Array<any> {
     // Create an space for the output
-    let output: Array<any> = [];
+    const output: Array<any> = [];
 
     // Walk through each of the items in the source array
     try {
