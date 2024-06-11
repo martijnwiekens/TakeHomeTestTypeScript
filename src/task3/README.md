@@ -12,7 +12,8 @@ This server has some example data that can be queried using the example client o
 1. `npm install`
 2. `npm run devtask3`
 
-**Start the client**
+**Run some tests**
+Included is an test client that connects with the GraphQL server the execute the queries mentioned below.
 
 1. `npm run clienttask3`
 
