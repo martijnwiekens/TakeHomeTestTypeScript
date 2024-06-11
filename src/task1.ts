@@ -5,9 +5,10 @@
  *
  * @returns A deep copy of the input array.
  */
-export default function copy(source: Array<any>): Array<any> {
+
+export default function copy<T>(source: T[]): T[] {
     // Create an space for the output
-    const output: Array<any> = [];
+    const output: T[] = [];
 
     // Walk through each of the items in the source array
     try {
